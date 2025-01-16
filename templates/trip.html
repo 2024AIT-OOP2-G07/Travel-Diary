@@ -18,27 +18,28 @@
     </header>
     <div class="page-title-container">
       <h1 class="page-title">人気の場所</h1>
-      <form method="GET" class="search-form" action="http://127.0.0.1:8080/trip">
+      <form method="GET" class="search-form" action="http://127.0.0.1:8989/trip">
         <label>住所: <input type="text" name="address" value ="{{ address or '' }}" ></label>
         <button type="submit">検索</button>
       </form>
     </div>
     <main>
-      {% if trip_data == None %} 
+      {% if not trip_data %} 
         <div class ="error-text">検索結果が見つかりませんでした</div>
+      {% else %}
+        {% for trip_data in trip_data %}
+        <div class="comment-box">
+          <div class="comment-header">
+            <span class="place-name">{{ trip_data.name }}</span>
+            <span class="date">{{ trip_data.day }}</span>
+          </div>
+          <div class="comment-content">
+            <p>{{ trip_data.comment }}</p>
+            <p>〒 {{ trip_data.address }}</p>
+          </div>
+        </div>
+        {% endfor %}
       {% endif %}
-      {% for trip_data in trip_data %}
-      <div class="comment-box">
-        <div class="comment-header">
-          <span class="place-name">{{ trip_data.name }}</span>
-          <span class="date">{{ trip_data.day }}</span>
-        </div>
-        <div class="comment-content">
-          <p>{{ trip_data.comment }}</p>
-          <p>〒 {{ trip_data.address }}</p>
-        </div>
-      </div>
-      {% endfor %}
     </main>
   </body>
 </html>
