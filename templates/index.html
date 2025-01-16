@@ -5,6 +5,11 @@
     <title>旅日記web</title>
     <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}" />
     <link rel="stylesheet" href="{{ url_for('static', filename='home.css') }}" />
+    <!-- 以下OGP -->
+    <meta property=”og:title” content=”旅日記webホーム” />
+    <meta property=”og:image” content=”{{ url_for('static', filename='home_ogp.png') }}”/>
+    <meta property=”og:type” content=”website” />
+    <meta property=”og:site_name” content=”旅日記web” />
   </head>
   <body class="home">
     <h1>旅日記web</h1>
