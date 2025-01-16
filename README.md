@@ -23,3 +23,5 @@ python3 app.py
 ```shell
 python3 seed.py
 ```
+
+`AUTO_SEED` を `True` にすると、アプリケーション起動時に自動でシードが実行されます
