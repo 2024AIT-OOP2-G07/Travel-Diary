@@ -1,3 +1,8 @@
+* {
+  box-sizing: border-box;
+  --header-height: 60px;
+}
+
 body {
   font-family: Arial, sans-serif;
   margin: 0;
@@ -11,20 +16,17 @@ a {
 
 #map {
   width: 100vw;
-  height: 92vh;
+  height: calc(100dvh - var(--header-height));
 }
 
-.line {
-  border-top: 2px solid #afafaf;
-}
 .web-title-container {
+  width: 100%;
+  height: var(--header-height);
+  padding: 0 20px;
   display: flex;
   align-items: center;
   justify-content: space-between;
-  width: 90%;
-  max-width: 80%;
-  margin: 20px auto;
-  padding: 15px 0;
+  border-bottom: 2px solid #afafaf;
 }
 
 .web-title {
