@@ -1,4 +1,4 @@
-from flask import Blueprint, render_template
+from flask import Blueprint, render_template,request
 from models import Place
 from peewee import fn
 
@@ -6,14 +6,26 @@ from peewee import fn
 points_bp = Blueprint("points", __name__, url_prefix="/points")
 
 
-@points_bp.route("/")
+@points_bp.route("/", methods=['GET', 'POST'])
 def list():
 
-    points_data = (
-        Place.select()
-        .group_by(Place.name)
-        .order_by(fn.COUNT(Place.name).desc())
-    )
+    keyword = request.args.get("q")
+
+    if keyword: 
+        points_data = (
+            Place.select()
+            .where(Place.name.contains(keyword) | Place.address.contains(keyword))
+            .group_by(Place.name)
+            .order_by(fn.COUNT(Place.name).desc())
+        )
+     
+        
+    else: 
+        points_data = (
+            Place.select()
+            .group_by(Place.name)
+            .order_by(fn.COUNT(Place.name).desc())
+        )
 
     points_data_comments = [
         {
@@ -28,4 +40,4 @@ def list():
         for p in points_data
     ]
 
-    return render_template("points.html", points_data=points_data_comments)
+    return render_template("points.html", points_data=points_data_comments, keyword = keyword)
