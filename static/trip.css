@@ -75,6 +75,14 @@ main {
   margin-top: 10px;
 }
 
+.error-text {
+  text-align: center; /* テキストを横方向の中央に配置 */
+  margin: 0 auto; /* ブロック要素の中央寄せ */
+  width: 100%; /* 要素の幅をページ全体に設定 */
+  font-size: 30px; /* テキストのサイズを適宜設定 */
+  /* color: red; テキストの色を指定（必要に応じて変更） */
+}
+
 .comment-box {
   margin: 20px auto;
   padding: 10px;
