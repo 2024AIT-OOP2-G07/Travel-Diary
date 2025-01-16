@@ -25,7 +25,7 @@ def add():
 
         if not coordinates:
             return render_template(
-                "add.html", error="住所が見つかりませんでした"
+                "add.html", error="※住所が見つかりませんでした"
             )
 
         Place.create(
