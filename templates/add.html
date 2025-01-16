@@ -11,10 +11,6 @@
     <div class="line"></div>
     <h1 class="title">記録する</h1>
 
-    {% if error %}
-      <p class="error">{{ error }}</p>
-    {% endif %}
-
     <div>
       <form class="grid" action="{{ url_for('add.add') }}" method="post">
         <div>訪れた場所</div>
@@ -45,6 +41,11 @@
         </div>
         
         <button class="submit" type="submit">追加</button>
+
+        {% if error %}
+          <p class="error">{{ error }}</p>
+        {% endif %}
+        
       </form>
     </div>
   </body>
