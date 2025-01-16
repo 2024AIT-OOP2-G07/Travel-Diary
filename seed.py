@@ -2,13 +2,9 @@ from datetime import datetime, timedelta
 from models.place import Place
 import random
 from faker import Faker
-from urllib.request import Request, urlopen
-import json
-from urllib.parse import quote
 from models import initialize_database
 
 fake = Faker("ja_JP")
-
 
 class RandomPoint:
     place_index = 0
