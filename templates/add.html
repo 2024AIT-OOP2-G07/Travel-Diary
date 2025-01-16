@@ -15,19 +15,20 @@
       <form class="grid" action="{{ url_for('add.add') }}" method="post">
         <div>訪れた場所</div>
         <div>
-          <input type="text" name="name" required />
+          <input type="text" name="name" required placeholder="訪れた場所を入力してください">
         </div>
         <div>訪れた日時</div>
         <div>
-          <input type="date" name="day" required />
+          <input type="date" name="day" required>
         </div>
         <div>住所</div>
         <div>
-          <input type="text" name="address" required />
+          <input type="text" name="address" required placeholder="住所を入力してください">
         </div>
-        <div>評価 </div>
+        <div>評価</div>
         <div>
           <select name="evaluation" required>
+            <option value="">選択してください</option>
             <option value="1">1</option>
             <option value="2">2</option>
             <option value="3">3</option>
@@ -37,7 +38,7 @@
         </div>
         <div>ひとこと</div>
         <div>
-          <input type="text" name="comment" required />
+          <input type="text" name="comment" required placeholder="ひとことを入力してください">
         </div>
         
         <button class="submit" type="submit">追加</button>
