@@ -9,19 +9,16 @@ trip_bp = Blueprint("trip", __name__, url_prefix="/trip")
 @trip_bp.route('/', methods=['GET', 'POST'])
 def list():
 
-    # addressがクエリパラメータで指定されているかを確認
-    address = request.args.get("address")
+    keyword = request.args.get("q")
 
-    if address:  # addressが指定されている場合
+    if keyword: 
         trip_data = Place.select()\
-            .where(Place.evaluation == 5, Place.address.contains(address))\
-            .order_by(Place.day.desc())\
-            .limit(5)
+            .where(Place.evaluation == 5, Place.name.contains(keyword) | Place.address.contains(keyword))\
+            .order_by(Place.day.desc())
         
-    else:  # 初回ロードまたはaddressが指定されていない場合
+    else: 
         trip_data = Place.select()\
             .where(Place.evaluation == 5)\
-            .order_by(Place.day.desc())\
-            .limit(5)
+            .order_by(Place.day.desc())
 
-    return render_template("trip.html", trip_data = trip_data, address = address)
+    return render_template("trip.html", trip_data = trip_data, keyword = keyword)

@@ -43,28 +43,39 @@ a {
   background-color: #ddd;
 }
 
-.page-title {
-  text-align: left;
-  font-size: 20px;
-  margin: 10px auto 5px auto; /* 下の余白を調整 */
-  max-width: 72%;
-  font-weight: bold;
-}
-
 .front-text {
   display: flex;
 }
 
-.page-title {
+.page-title-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
   text-align: left;
-  font-size: 20px;
-  margin: 10px auto 5px auto; /* 下の余白を調整 */
-  max-width: 72%;
-  font-weight: bold;
+  margin: 20px auto;
+  padding: 15px 0;
+  width: 80%;
+  max-width: 71%;
 }
+
+.page-title{
+  margin: 0;
+  font-size: 20px;
+  font-weight: bold;
+  text-align: left;
+}
+
 
 main {
   margin-top: 10px;
+}
+
+.error-text {
+  text-align: center; /* テキストを横方向の中央に配置 */
+  margin: 0 auto; /* ブロック要素の中央寄せ */
+  width: 100%; /* 要素の幅をページ全体に設定 */
+  font-size: 30px; /* テキストのサイズを適宜設定 */
+  /* color: red; テキストの色を指定（必要に応じて変更） */
 }
 
 .comment-box {
